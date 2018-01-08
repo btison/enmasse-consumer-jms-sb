@@ -11,7 +11,7 @@ public class MessageConsumerServiceImpl implements MessageConsumerService {
     private MessageCounterService messageCounterService;
 
     @Override
-    @JmsListener(destination = "${consumer.destination}")
+    @JmsListener(destination = "${consumer.destination}", subscription= "${consumer.subscription}")
     public void processMessage(String msg) {
         messageCounterService.countMessage(msg);
     }
